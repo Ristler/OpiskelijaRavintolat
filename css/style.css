@@ -1,0 +1,222 @@
+@font-face {
+    font-family: Poppins;
+    src: url("Poppins-Regular.ttf") format("truetype");
+}
+.auth {
+    width: 50%;
+    margin: auto;
+
+}
+
+.sivu {
+    width: 80%;
+   
+    margin: auto;
+  
+}
+
+html {
+    font-family:'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #F4EEFF;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+
+    margin: 0;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+}
+header h1 {
+
+    background-color: #424874;
+    position: fixed;
+    width: 80%;
+    top: -30px;
+    color: #ffffff;
+    
+
+}
+
+header h1 img {
+    position: relative;
+    height: auto;
+    width: 50px;
+    top: 10px
+}
+
+
+nav {
+    position: fixed;
+    width: 40%;
+    top: -9px
+    
+}
+ul {
+    display: flex;
+    list-style-type: none;
+    justify-content: space-evenly;
+    padding: 0px;
+    margin: 0;
+}
+
+
+p {
+    padding: 40px 60px;
+    text-align: center;
+    
+}
+
+li {
+    width: calc(100% / 3)
+}
+
+li a {
+    background-color: #424874;
+    color: #ffffff;
+    width: 100%;
+    display: block;
+    text-align: center;
+    line-height: 3rem;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #393f66;
+    
+}
+
+
+
+main {
+    background-color: #A6B1E1;
+    padding:1rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+
+}
+
+
+section {
+    background-color:#DCD6F7;
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 212.6px 5px;
+    
+    
+}
+
+
+
+section h3 {
+    text-align: center;
+    width: 100%
+    
+}
+
+
+
+section h2 {
+    width: 100%;
+    text-align: center;
+   
+}
+
+
+
+article {
+    width: calc(100% / 3);
+    padding: 1rem;  
+    box-sizing: border-box;
+    text-align: center;
+
+}
+aside {
+    background-color: blanchedalmond;
+    width: 100%
+
+}
+
+footer {
+    background-color: #424874;
+    color: #ffffff;
+    padding: 1rem;
+    text-align: center;
+}
+
+
+@media screen and (max-width: 768px) {
+    .sivu {
+        width: 100%;
+        margin: auto;
+     
+    }
+
+    
+    main {
+        background-color: #A6B1E1;
+        padding:1rem;
+        display: flex;
+        flex-wrap: wrap;
+        
+    }
+
+  
+    nav {
+
+        position: fixed;
+        width: 100%;
+        
+  
+        
+    }
+    article {
+   
+        width: 100%;
+        padding: 1rem;  
+        box-sizing: border-box;
+        text-align: center;
+    
+    }
+
+
+
+    header h1 {
+
+        background-color: #424874;
+        position: fixed;
+        width:100%;
+        top: -30px;
+        color: transparent
+        
+    
+    }
+    p {
+        padding: 40px 60px;
+        text-align: center;
+        overflow-wrap: break-word;
+        word-break: break-all;
+
+    }
+    body {
+    background-color: #F4EEFF;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+}
+
+}
