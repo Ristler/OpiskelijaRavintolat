@@ -3,36 +3,41 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>Foodie! - Kirjaudu sisään</title>
+        <title>Feedia - Kirjaudu sisään</title>
         <link rel="icon" type="image/png" href="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="authBody">
         <div class="auth">
             
             
             
             </header>
-            <main>
-                <section>
+            <main class="authMain">
+                
+                <section class="authSection">
 
-                    <form>
+                    <h2 class="authGreeting">Hei! <br> Tervetuloa takaisin</h2> 
+
+                    <form class="authForm">
                         <label for="user">Käyttäjänimi</label><br>
-                        <input type="text" id="user" name="fname"><br>
-                        <label for="lname">Salasana</label><br>
-                        <input type="password" id="password" name="lname">
-                    
-                        <input type="submit" value="Kirjaudu sisään">
+                        <input type="text" id="user" name="user"><br>
+                        <label for="password">Salasana</label><br>
+                        <input type="password" id="password" name="password"><br><br>
+                        <input class="formButton" type="submit" value="Kirjaudu sisään">
+                        <button class="formButton" type="button" onclick="window.location.href='register.html'">Rekisteröidy</button><br>
+                        <img class="homeButton" src="/assets/homeicon.png" onclick="window.location.href='main.html'">
                       </form>
-                   
+                      
+
+                                         
                 </section>
+                
               
                 
             </main>
-            <footer>
-                Foodie! 2025 ©
-                </footer>
+       
             
         </div>
     </body>

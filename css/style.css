@@ -1,34 +1,30 @@
 @font-face {
-    font-family: Poppins;
-    src: url("Poppins-Regular.ttf") format("truetype");
+    font-family: "Inter";
+    src: url("/fonts/Inter.ttf") format("truetype");
 }
-.auth {
-    width: 50%;
-    margin: auto;
 
-}
 
 .sivu {
     width: 80%;
-   
     margin: auto;
   
 }
 
+
+
+
 html {
-    font-family:'Poppins', sans-serif;
     scroll-behavior: smooth;
 }
 body {
-    background-color: #F4EEFF;
+    background-color: #FBF8EF;
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-
     margin: 0;
     overflow-x: hidden;
     overscroll-behavior: none;
-    
+    font-family: "Inter", sans-serif;    
 }
 
 header {
@@ -37,10 +33,11 @@ header {
 }
 header h1 {
 
-    background-color: #424874;
+    background-color: #FFB433;
     position: fixed;
     width: 80%;
-    top: -30px;
+    top: -25px;
+    height: 50px;
     color: #ffffff;
     
 
@@ -49,14 +46,17 @@ header h1 {
 header h1 img {
     position: relative;
     height: auto;
-    width: 50px;
-    top: 10px
+    width: 40px;
+    height: 40px;
+    top: 6px;
+
+    margin-left: 15px;
 }
 
 
 nav {
     position: fixed;
-    width: 40%;
+    width: 50%;
     top: -9px
     
 }
@@ -64,7 +64,7 @@ ul {
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
-    padding: 0px;
+    padding: 7px;
     margin: 0;
 }
 
@@ -80,8 +80,8 @@ li {
 }
 
 li a {
-    background-color: #424874;
-    color: #ffffff;
+    background-color: #FFB433;
+    color: #333333;
     width: 100%;
     display: block;
     text-align: center;
@@ -90,14 +90,14 @@ li a {
 }
 
 li a:hover {
-    background-color: #393f66;
+    background-color: #E09E2E;
     
 }
 
 
 
 main {
-    background-color: #A6B1E1;
+    background-color: #80CBC4;
     padding:1rem;
     display: flex;
     flex-wrap: wrap;
@@ -108,12 +108,13 @@ main {
 
 
 section {
-    background-color:#DCD6F7;
+    background-color:#B4EBE6;
     width: 80%;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 212.6px 5px;
+    padding: 425px 5px;
+    border-radius: 50px;
     
     
 }
@@ -150,11 +151,242 @@ aside {
 }
 
 footer {
-    background-color: #424874;
-    color: #ffffff;
+    background-color: #FFB433;
+    color: #333333;
     padding: 1rem;
     text-align: center;
 }
+
+
+
+.profileContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #80CBC4;
+    height: 500px;
+    width: 500px;
+
+    border-radius: 100px;
+    margin-top: -380px;
+
+}
+
+
+.profileForm {
+    text-align: center;
+    width: 100%; 
+    margin-top: 75px;
+}
+
+
+
+
+
+.profileSection {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 5px;
+    
+}
+.profilePicture {
+    border-radius: 500px;
+    height: 150px;
+    width: 150px;
+    margin-top: 30px; 
+    cursor: pointer;
+    border: 5px solid #FBF8EF;
+   
+}
+.profilePicture:hover {
+    border: 5px solid #E09E2E;
+}
+.infoProfile {
+    font-size: small;
+    font-style: italic;
+    -webkit-animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	        animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.päivitäNappi {
+    height: 50px;
+    width: 150px;
+    border-radius: 100px;
+    background-color: #FFB433;
+    border: 1px solid #E09E2E;
+    cursor: pointer;
+    
+        
+}
+
+
+
+
+
+.auth {
+    width: 50%;
+    margin: auto;
+
+}
+.authMain {
+    background-color: #80CBC4;
+    padding:3rem;
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 50px;
+    height: 450px;
+
+
+
+    
+
+}
+.authBody {
+    margin-top: 150px;
+    
+}
+
+.authForm {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 0;
+
+
+}
+.authSection {
+    background-color:#B4EBE6;
+    justify-content: center;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 212.6px 5px;
+    border-radius: 50px;
+    height: 20px;
+
+}
+
+
+.authGreeting {
+    color:#424874;
+    margin-top: -100px;
+    margin-bottom: 0;
+        -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+                animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+}
+.formButton {
+    border-radius: 20px;
+    height: 25px;
+    width: 120px;
+    margin-top: 20px;
+    background-color: #FFB433;
+    border: 2px solid #E09E2E;
+    cursor: pointer;
+
+    
+}
+.homeButton {
+    height: 50px;
+    padding: 20px;
+    cursor: pointer;
+    border: 2px solid #E09E2E;
+    border-radius: 400px;
+    margin: 0;
+    padding: 0;
+    margin-top: px;
+
+  
+}
+.homeButton:hover {
+    content: url('/assets/homeiconhover.png');
+
+}
+
+.formButton:hover {
+    background-color: #E09E2E;
+}
+
+
+
+.päivitäNappi:hover {
+    background-color: #E09E2E;
+
+}
+
+
+
+@keyframes breathingBackground {
+    0% { background-color: #F4EEFF; filter: brightness(100%); }
+    50% { background-color: #E3D8FF; filter: brightness(110%); }
+    100% { background-color: #F4EEFF; filter: brightness(100%); }
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2025-3-18 19:32:54
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation tracking-in-expand
+ * ----------------------------------------
+ */
+ @-webkit-keyframes authGreeting {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes tracking-in-expand {
+    0% {
+      letter-spacing: -0.5em;
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes infoProfile {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  @keyframes text-focus-in {
+    0% {
+      -webkit-filter: blur(12px);
+              filter: blur(12px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-filter: blur(0px);
+              filter: blur(0px);
+      opacity: 1;
+    }
+  }
+  
+  
+  
 
 
 @media screen and (max-width: 768px) {
@@ -164,16 +396,13 @@ footer {
      
     }
 
-    
     main {
-        background-color: #A6B1E1;
+        background-color: #FBF8EF;
         padding:1rem;
         display: flex;
         flex-wrap: wrap;
         
     }
-
-  
     nav {
 
         position: fixed;
@@ -182,26 +411,32 @@ footer {
   
         
     }
+    section {
+        background-color:#B4EBE6;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 auto;
+        padding: 425 px 5px;
+        border-radius: 50px;
+        
+    }
     article {
    
         width: 100%;
         padding: 1rem;  
         box-sizing: border-box;
         text-align: center;
-    
     }
-
-
 
     header h1 {
 
-        background-color: #424874;
+        background-color: #FFB433;
         position: fixed;
         width:100%;
-        top: -30px;
+        top: -25px;
         color: transparent
         
-    
     }
     p {
         padding: 40px 60px;
@@ -211,12 +446,23 @@ footer {
 
     }
     body {
-    background-color: #F4EEFF;
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    overflow-x: hidden;
-    overscroll-behavior: none;
-}
+        background-color: #F4EEFF;
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+        overflow-x: hidden;
+        overscroll-behavior: none;
+    }
 
+    .profileContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #80CBC4;
+        height: 530px;
+        width: 500px;
+        border-radius: 100px;
+        margin-top: -380px;
+    
+    }
 }
