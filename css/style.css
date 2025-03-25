@@ -99,7 +99,8 @@ section {
     margin: 0 auto;
     padding: 402px 5px;
     border-radius: 50px;
-    margin-top: 50px;    
+    margin-top: 50px;
+       
 }
 
 section h3 {
@@ -141,7 +142,7 @@ footer {
     height: 500px;
     width: 500px;
     border-radius: 100px;
-    margin-top: -380px;
+    margin-top: -270px;
 
 }
 .profileForm {
@@ -355,7 +356,7 @@ footer {
         display: flex;
         flex-wrap: wrap;
         margin: 0 auto;
-        padding: 425 px 5px;
+        padding: 427px 5px;
         border-radius: 50px;
     }
 
@@ -389,7 +390,6 @@ footer {
         overflow-x: hidden;
         overscroll-behavior: none;
     }
-    
     .profileContainer {
         display: flex;
         flex-direction: column;
