@@ -3,25 +3,27 @@
     <head>
         <meta charset="UTF-8">
         <title>Feedia - Profiili</title>
-        <link rel="icon" type="image/png" href="/assets/logoicon.png">
+        <link rel="icon" type="image/png" href="assets/logoicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script src="js/profile.js" defer type="module"></script>
     </head>
     <body>
         <div class="sivu">
             <header>
-                <h1><img src="/assets/logoicon.png" alt="logo"></h1>
+                <h1><img src="assets/logoicon.png" alt="logo"></h1>
                 <nav>
                     <ul>
                         <li><a href="main.html">Koti</a></li>
-                        <li><a href="login.html">Kirjaudu sisään</a></li>
+                        <li><a id="logout">Kirjaudu ulos</a></li>
                     </ul>
                 </nav>
             </header>
             <main>
                 <section class="profileSection">
                     <div class="profileContainer">
-                        <img class="profilePicture" src="./assets/profilePlaceholder.png" onclick=" alert('Ei ole logiikkaa vielä, mutta tästä voidaan vaihtaa tulevaisuudessa profiilikuva')" alt="vaihda profiilikuva">
+                        <img class="profilePicture" src="assets/profilePlaceholder.png" onclick=" alert('Ei ole logiikkaa vielä, mutta tästä voidaan vaihtaa tulevaisuudessa profiilikuva')" alt="vaihda profiilikuva">
+                        <p id="username"></p>
                             <form class="profileForm">
                                 <label for="ruokavalio">Ruokavaliosi:</label>
                             <select id="ruokavalio" name="ruokavalio">

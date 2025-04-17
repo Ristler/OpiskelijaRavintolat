@@ -3,9 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Feedia - Rekisteröidy</title>
-        <link rel="icon" type="image/png" href="/assets/logoicon.png">
+        <link rel="icon" type="image/png" href="assets/logoicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script src="js/register.js" defer type="module"></script>
+
     </head>
     <body class="authBody">
         <div class="auth">
@@ -17,9 +19,15 @@
                         <input type="text" id="user" name="user"><br>
                         <label for="password">Salasana</label><br>
                         <input type="password" id="password" name="password"><br><br>
+
+                        <label for="email">Sähköposti</label><br>
+                        <input type="email" id="email" name="email"><br><br>
+
+
+
                         <input class="formButton" type="submit" value="Luo käyttäjä">
-                        <button class="formButton" type="button" onclick="window.location.href='main.html'">Takaisin kotiin</button><br>
-                        <img class="homeButton" src="/assets/homeicon.png" onclick="window.location.href='main.html'" alt="kotinäppäin">
+                        <button class="formButton" type="button" onclick="window.location.href='login.html'">Käyttäjä löytyy jo?</button><br>
+                        <img class="homeButton" src="assets/homeicon.png" onclick="window.location.href='main.html'" alt="kotinäppäin">
                       </form>
                 </section>
             </main>      

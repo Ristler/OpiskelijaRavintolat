@@ -1,12 +1,17 @@
 @font-face {
     font-family: "Inter";
-    src: url("/fonts/Inter.ttf") format("truetype");
+    src: url("../fonts/Inter.ttf") format("truetype");
 }
 
 /* DESKTOP STYLET */
 .sivu {
     width: 80%;
     margin: auto;
+
+}
+#map {
+    height: 80%;
+    width: 100%;
 }
 
 html {
@@ -27,24 +32,26 @@ body {
 header {
     display: flex;
     justify-content: flex-end;
+    
 }
 
 header h1 {
     background-color: #FFB433;
+    
     position: fixed;
     width: 80%;
-    top: -25px;
-    height: 50px;
+    top:  -2.8vh;
+    height: 5.4vh;
     color: #ffffff;
 }
 
 header h1 img {
     position: relative;
     height: auto;
-    width: 40px;
-    height: 40px;
-    top: 6px;
-    margin-left: 15px;
+    width: 4vh;
+   
+    top: 0.8vh;
+    margin-left: 1vh;
 }
 
 nav {
@@ -57,7 +64,7 @@ ul {
     display: flex;
     list-style-type: none;
     justify-content: space-evenly;
-    padding: 7px;
+    padding: 0.5vh;
     margin: 0;
 }
 
@@ -68,6 +75,7 @@ p {
 
 li {
     width: calc(100% / 3)
+    height: 100%
 }
 
 li a {
@@ -76,12 +84,15 @@ li a {
     width: 100%;
     display: block;
     text-align: center;
-    line-height: 3rem;
+    line-height: 2.1rem; 
     text-decoration: none;
+    padding: 0.5rem 0; 
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 li a:hover {
     background-color: #E09E2E;
+    transform: scale(1.05); 
 }
 
 main {
@@ -97,9 +108,11 @@ section {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 402px 5px;
+    height: 89.4vh;
     border-radius: 50px;
-    margin-top: 50px;
+    margin-top: 5vh;
+    justify-content: center;
+    text-align: center;
        
 }
 
@@ -142,7 +155,7 @@ footer {
     height: 500px;
     width: 500px;
     border-radius: 100px;
-    margin-top: -270px;
+    margin-top: 10vh;
 
 }
 .profileForm {
@@ -150,12 +163,22 @@ footer {
     width: 100%; 
     margin-top: 75px;
 }
+#username {
+    margin: 0;
+    padding: 0.5rem 0;
+
+}
+
 
 .profileSection {
     display: flex;
     justify-content: center;
     text-align: center;
-    height: 5px;
+   
+ 
+
+    
+    
     
 }
 .profilePicture {
@@ -165,6 +188,7 @@ footer {
     margin-top: 30px; 
     cursor: pointer;
     border: 5px solid #FBF8EF;
+    padding: 10px;
    
 }
 .profilePicture:hover {
@@ -199,11 +223,11 @@ footer {
     display: flex;
     flex-wrap: wrap;
     border-radius: 50px;
-    height: 450px;
+    height: auto; 
 }
 
 .authBody {
-    margin-top: 150px;
+    margin-top: 10vh;
 }
 
 .authForm {
@@ -229,7 +253,7 @@ footer {
     margin-top: -100px;
     margin-bottom: 0;
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-    animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+    animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 .formButton {
@@ -254,7 +278,7 @@ footer {
 }
 
 .homeButton:hover {
-    content: url('/assets/homeiconhover.png');
+    content: url("../assets/homeiconhover.png");
 }
 
 .formButton:hover {
@@ -371,6 +395,7 @@ footer {
         background-color: #FFB433;
         position: fixed;
         width:100%;
+       
         top: -25px;
         color: transparent
     }

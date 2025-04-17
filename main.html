@@ -3,23 +3,41 @@
     <head>
         <meta charset="UTF-8">
         <title>Feedia - Etusivu</title>
-        <link rel="icon" type="image/png" href="/assets/logoicon.png">
+        <link rel="icon" type="image/png" href="assets/logoicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin=""/>
         <link href="css/style.css" rel="stylesheet">
+        <script src="js/main.js" defer type="module"></script>
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
+     
     </head>
     <body>
         <div class="sivu">
             <header>
-                <h1><img src="/assets/logoicon.png" alt="logo"></h1>
+                <h1><img src="assets/logoicon.png" alt="logo"></h1>
                 <nav>
                     <ul>
-                        <li><a href="profile.html">Profiili</a></li>
-                        <li><a href="login.html">Kirjaudu sisään</a></li>
+                        <li><a id="registerorprofile">Rekisteröidy</a></li>
+                        <li><a id="loginorlogout">Kirjaudu sisään</a></li>
                     </ul>
                 </nav>
             </header>
             <main>
                 <section>
+                    <button id="nearestRestaurants">Lähimmät ravintolat</button>
+                    <div id="map"></div>
+
+                    <dialog>
+                        <div id="infoContainer"></div>
+                        <button id="closeModal">Sulje</button>
+                        <!-- add restaurant info here when restaurant is clicked -->
+                      </dialog>
+                    
+                    
                 </section>
             </main>
             <footer>
