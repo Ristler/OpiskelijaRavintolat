@@ -5,7 +5,12 @@ import { addFavoriteRestaurant, getFavoriteRestaurantId } from "../utils/fetchUs
 
 //ELEMENTS
 const nearestRestaurantsButton = document.querySelector('#nearestRestaurants');
-const favoriteButton = document.querySelector('#favoriteRestaurant');
+
+
+const favorite = document.querySelector('#favoriteRestaurant');
+
+
+
 const infoContainer = document.querySelector('#infoContainer');
 const modal = document.querySelector('dialog');
 const closeModal = document.querySelector('#closeModal');
@@ -23,16 +28,23 @@ let menu = [];
 let map;
 
 const initializeSite = async() => {
+    favorite.style.display = 'none'; 
+    const favId = await getFavoriteRestaurantId();
+    console.log(favId);
     nearestRestaurantsButton.innerHTML = `Lähimmät<br>ravintolat`;
-    favoriteButton.innerHTML= `Suosikki<br>ravintolani`
+       
 
+    if(favId) {
+
+         favorite.innerHTML= `Suosikki<br>ravintolani`
+         favorite.style.display = 'block';
+    }
 
     if(token) {
         loginorlogout.innerHTML = 'Kirjaudu ulos';
         registerorprofile.innerHTML = 'Profiili';
-        favoriteButton.style.display = 'block';
     } else {
-        favoriteButton.style.display = 'none'; 
+        favorite.style.display = 'none'; 
     }
     try {
         restaurants = await getRestaurants();
@@ -56,7 +68,7 @@ const initializeSite = async() => {
                             <div class="popupButtons">
                              <button id="menu-button">Katso päivän menu</button>
                              <button id="weeklyMenu">Katso viikon menu</button>
-                              ${token ? `<img class="favoriteButton" src="../assets/suosikkiNappi.png" alt="Click me" style="width: 50px; height: 50px;"/>` : ''}
+                              ${token ? `<img class="favoriteButton" src="./assets/suosikkiNappi.png" alt="Aseta suosikkiravintola" style="width: 50px; height: 50px;"/>` : ''}
                             </div>
                         </div>
                     `)
@@ -81,7 +93,6 @@ const initializeSite = async() => {
                         favoriteButton.addEventListener('click', async ()  => {
                             await addFavoriteRestaurant(restaurant._id);
                             alert(`${restaurant.name} lisätty suosikiksi!`);
-                            //localStorage.setItem('favRestaurant', restaurant.name);
                         });
                     })
             })}
@@ -225,7 +236,7 @@ nearestRestaurantsButton.addEventListener('click', () => {
     })
 });
 
-favoriteButton.addEventListener('click', async () => {
+favorite.addEventListener('click', async () => {
     const favId = await getFavoriteRestaurantId();
     
 
