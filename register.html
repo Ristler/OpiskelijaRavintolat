@@ -2,37 +2,30 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Feedia - Profiili</title>
+        <title>Feedia - Rekisteröidy</title>
         <link rel="icon" type="image/png" href="assets/logoicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
-        <script src="js/profile.js" type="module"></script>
+        <script src="js/register.js" type="module"></script>
     </head>
-    <body>
-        <div class="sivu">
-            <header>
-                <h1><img src="assets/logoicon.png" alt="logo"></h1>
-                <nav>
-                    <ul>
-                        <li><a href="main.html">Koti</a></li>
-                        <li><a id="logout">Kirjaudu ulos</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <main>
-                <section class="profileSection">
-                    <div class="profileContainer">
-                        <img id="profilePictureButton" class="profilePicture" src="assets/profilePlaceholder.png" alt="Profiili kuvan placeholder">
-                        <p id="username"></p>
-                        <p id="favRestaurant"></p>                          
-                            <p class="infoProfile">Voit päivittää profiilikuvaasi ja tarkistaa suosikkiravintolasi täältä!</p>
-                            <button id="update" class="päivitäNappi">Päivitä profiilikuva</button>
-                    </div>
+    <body class="authBody">
+        <div class="auth">
+            <main class="authMain">
+                <section class="authSection">
+                    <h2 class="authGreeting">Hei! <br>Tervetuloa mukaan!</h2> 
+                    <form class="authForm">
+                        <label for="user">Käyttäjänimi</label><br>
+                        <input type="text" id="user" name="user"><br>
+                        <label for="password">Salasana</label><br>
+                        <input type="password" id="password" name="password"><br><br>
+                        <label for="email">Sähköposti</label><br>
+                        <input type="email" id="email" name="email"><br><br>
+                        <input class="formButton" type="submit" value="Luo käyttäjä">
+                        <button class="formButton" type="button" onclick="window.location.href='login.html'">Käyttäjä jo?</button><br>
+                        <img class="homeButton" src="assets/homeicon.png" onclick="window.location.href='main.html'" alt="kotinäppäin">
+                      </form>
                 </section>
-            </main>
-            <footer>
-             Feedia – Lounasfeedisi joka päivä
-            </footer>
+            </main>      
         </div>
     </body>
 </html>
