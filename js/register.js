@@ -10,7 +10,7 @@ const handleSubmit = async (event) => {
         const user = { username, password, email };
         const creds = {username, password};
         const response = await userAvailable(username);
-        console.log('Response:', response);  // Changed from available to response
+        console.log('Response:', response);
 
         if(response.available === true) {
             await createUser(user);

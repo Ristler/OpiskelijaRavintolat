@@ -10,7 +10,7 @@ const handleSubmit = async (event) => {
     try {
         const user = { username, password};
         const response = await userAvailable(username);
-        console.log('Response:', response);  // Changed from available to response
+        console.log('Response:', response);
 
         if(response.available === false) {
             const userResponse = await userLogin(user);

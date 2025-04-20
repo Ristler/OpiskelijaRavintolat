@@ -6,7 +6,7 @@
         <link rel="icon" type="image/png" href="assets/logoicon.png">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
-        <script src="js/profile.js" defer type="module"></script>
+        <script src="js/profile.js" type="module"></script>
     </head>
     <body>
         <div class="sivu">
@@ -22,19 +22,11 @@
             <main>
                 <section class="profileSection">
                     <div class="profileContainer">
-                        <img class="profilePicture" src="assets/profilePlaceholder.png" onclick=" alert('Ei ole logiikkaa vielä, mutta tästä voidaan vaihtaa tulevaisuudessa profiilikuva')" alt="vaihda profiilikuva">
+                        <img id="profilePictureButton" class="profilePicture" src="assets/profilePlaceholder.png" alt="profiili kuvan placeholder">
                         <p id="username"></p>
-                            <form class="profileForm">
-                                <label for="ruokavalio">Ruokavaliosi:</label>
-                            <select id="ruokavalio" name="ruokavalio">
-                                <option value="sekasyöjä">Sekasyöjä</option>
-                                <option value="vegaani">Vegaani</option>
-                                <option value="kasvissyöjä">Kasvissyöjä</option>
-                                <option value="pescovegetaristi">Pescovegetaristi</option>
-                            </select>
-                            </form>
-                            <p class="infoProfile">Valitsemalla ruokavalion, saat parempia neuvoja ja inspiraatiota ruokavalintojesi tueksi.</p>
-                            <button class="päivitäNappi">Päivitä tiedot</button>
+                        <p id="favRestaurant"></p>                          
+                            <p class="infoProfile">Voit päivittää profiilikuvaasi ja tarkistaa suosikkiravintolasi täältä!</p>
+                            <button id="update" class="päivitäNappi">Päivitä profiilikuva</button>
                     </div>
                 </section>
             </main>

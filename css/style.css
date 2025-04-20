@@ -12,6 +12,7 @@
 #map {
     height: 80%;
     width: 100%;
+    border-radius: 35px;
 }
 
 html {
@@ -74,7 +75,7 @@ p {
 }
 
 li {
-    width: calc(100% / 3)
+    width: calc(100% / 3);
     height: 100%
 }
 
@@ -152,7 +153,7 @@ footer {
     flex-direction: column;
     align-items: center;
     background-color: #80CBC4;
-    height: 500px;
+    height: 60vh;
     width: 500px;
     border-radius: 100px;
     margin-top: 10vh;
@@ -175,9 +176,6 @@ footer {
     justify-content: center;
     text-align: center;
    
- 
-
-    
     
     
 }
@@ -188,7 +186,7 @@ footer {
     margin-top: 30px; 
     cursor: pointer;
     border: 5px solid #FBF8EF;
-    padding: 10px;
+    padding: 1px;
    
 }
 .profilePicture:hover {
@@ -219,7 +217,7 @@ footer {
 
 .authMain {
     background-color: #80CBC4;
-    padding:3rem;
+    padding: 3rem;
     display: flex;
     flex-wrap: wrap;
     border-radius: 50px;
@@ -233,7 +231,8 @@ footer {
 .authForm {
     text-align: center;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 10vh;
+
 }
 
 .authSection {
@@ -245,12 +244,12 @@ footer {
     margin: 0 auto;
     padding: 212.6px 5px;
     border-radius: 50px;
-    height: 20px;
+    height: 8vh;
 }
 
 .authGreeting {
     color: black;
-    margin-top: -100px;
+    margin-top: -10vh;
     margin-bottom: 0;
     -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
     animation: tracking-in-expand 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
@@ -288,7 +287,41 @@ footer {
 .päivitäNappi:hover {
     background-color: #E09E2E;
 }
+.buttonStyle {
+    border-radius: 20px;
+    height: 75px;
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
 
+.actionButtons {
+    display: flex;
+
+    height: 45px;
+    margin: 3vh;
+    gap: 5vh;
+    height: 7vh;
+
+}
+.buttonStyle:hover {
+    background-color: lightgray;
+}
+.buttonStyle:active {
+    transform: scale(0.95); /* makes it shrink slightly */
+}
+.favoriteButton {
+    cursor: pointer;
+}
+.menuItems {
+    cursor: pointer;
+}
+
+.popupButtons {
+    display: flex;
+    gap: 15px;
+   
+}
 
 
 /* ----------------------------------------------
@@ -408,7 +441,7 @@ footer {
     }
 
     body {
-        background-color: #F4EEFF;
+        background-color: #FBF8EF;
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -420,10 +453,10 @@ footer {
         flex-direction: column;
         align-items: center;
         background-color: #80CBC4;
-        height: 530px;
-        width: 500px;
+        height: 80vh;
+        width: 50vh;
         border-radius: 100px;
-        margin-top: -380px;
+        margin-top: -50vh;
     }
 
     .auth {

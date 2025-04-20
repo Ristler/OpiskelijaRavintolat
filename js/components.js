@@ -22,9 +22,6 @@ menuHtml += `</table>`;
 return menuHtml;
 } 
 
-
-
-
 const weeklyMenuModal = (weekly, restaurant) => {
     const { name } = restaurant;
     console.log('Weekly data in modal:', weekly);
@@ -61,43 +58,7 @@ const weeklyMenuModal = (weekly, restaurant) => {
 
     menuHtml += `</tr></table>`;
     return menuHtml;
-}
+};
 
-
-//testaaaa
-const navBar = () => {
-    // Start with a basic navbar
-    let html = `
-    <header>
-        <h1><img src="assets/logoicon.png" alt="logo"></h1>
-        <nav>
-            <ul>
-                <li><a href="profile.html">Profiili</a></li>
-                <li><a id="loginorlogout" href="#">Kirjaudu sisään</a></li>
-            </ul>
-        </nav>
-    </header>`;
-
-    document.body.insertAdjacentHTML('afterbegin', html);
-
-    // Dynamic login/logout behavior
-    const loginOrLogoutLink = document.getElementById('loginorlogout');
-    const token = localStorage.getItem('token'); // Check if user is logged in
-
-    if (token) {
-        loginOrLogoutLink.textContent = 'Kirjaudu ulos'; // Change text to logout
-        loginOrLogoutLink.onclick = () => {
-            localStorage.removeItem('token'); // Remove the token on logout
-            location.reload(); // Reload to update UI
-        };
-    } else {
-        loginOrLogoutLink.textContent = 'Kirjaudu sisään'; // Default to login
-        loginOrLogoutLink.onclick = () => {
-            window.location.href = 'login.html'; // Redirect to login page
-        };
-    }
-}
-
-
-export {restaurantModal, weeklyMenuModal, navBar};
+export {restaurantModal, weeklyMenuModal};
 

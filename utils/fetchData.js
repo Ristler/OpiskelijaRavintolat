@@ -21,7 +21,16 @@ const fetchMenu = async (menu, id) => {
         console.log(error.message);
     }
   }
-
+  const getRestaurant = async (id) => {
+    try {
+        const response = await fetch(`https://media2.edu.metropolia.fi/restaurant/api/v1/restaurants/${id}`);
+        if(!response.ok) throw new Error('Invalid input');
+        const jsonData = await response.json();
+        return jsonData;
+    } catch (error) {
+        console.log(error.message);
+    }
+  }
   
   const fetchWeeklyMenu = async (weekly, id) => {
 
@@ -39,7 +48,7 @@ const fetchMenu = async (menu, id) => {
 
 
 
-export {getRestaurants, fetchMenu, fetchWeeklyMenu}
+export {getRestaurants, fetchMenu, fetchWeeklyMenu, getRestaurant}
 
 
 

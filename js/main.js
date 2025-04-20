@@ -1,42 +1,46 @@
-//MAP
-import { restaurantModal, weeklyMenuModal, navBar} from "./components.js";
 
+import { restaurantModal, weeklyMenuModal} from "./components.js";
 import {getRestaurants, fetchMenu, fetchWeeklyMenu} from '../utils/fetchData.js';
+import { addFavoriteRestaurant, getFavoriteRestaurantId } from "../utils/fetchUser.js";
+
+//ELEMENTS
 const nearestRestaurantsButton = document.querySelector('#nearestRestaurants');
+const favoriteButton = document.querySelector('#favoriteRestaurant');
 const infoContainer = document.querySelector('#infoContainer');
 const modal = document.querySelector('dialog');
 const closeModal = document.querySelector('#closeModal');
-
 const loginorlogout = document.querySelector('#loginorlogout');
 const registerorprofile = document.querySelector('#registerorprofile');
 
 
+//LOCALSTORAGE
 const token = localStorage.getItem('token');
+
+
 let weeklyMenu = [];
 let restaurants = [];
 let menu = [];
-console.log(token)
 let map;
 
+const initializeSite = async() => {
+    nearestRestaurantsButton.innerHTML = `Lähimmät<br>ravintolat`;
+    favoriteButton.innerHTML= `Suosikki<br>ravintolani`
 
-//change func name to maybe initializeSite? 
-const initializeMap = async() => {
+
     if(token) {
         loginorlogout.innerHTML = 'Kirjaudu ulos';
         registerorprofile.innerHTML = 'Profiili';
+        favoriteButton.style.display = 'block';
+    } else {
+        favoriteButton.style.display = 'none'; 
     }
-
     try {
         restaurants = await getRestaurants();
-        console.log('Fetched restaurants:', restaurants);
-        
-        // Initialize map after getting restaurants
         map = L.map('map').setView([65.192059, 24.945831], 4.49);
         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        // Add markers for restaurants
         if (restaurants && restaurants.length > 0) {
             restaurants.forEach(restaurant => {
                 const y = restaurant.location.coordinates[0];
@@ -45,50 +49,49 @@ const initializeMap = async() => {
                 L.marker([x, y]).addTo(map)
                     .bindPopup(`
                         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-                            <h3>${restaurant.name}</h3>
-                            <h3>${restaurant.city}</h3>
-                            <p>${restaurant.address}</p>
-                             <p>${restaurant._id}</p>
-                            <button class="menu-button">Katso päivän menu</button>
+                            <h3>${restaurant.name} ${restaurant.company}</h3>
+                            <p>Osoite: ${restaurant.address}, ${restaurant.city}, ${restaurant.postalCode}</p>
+                            <p>Puhelinnumero: ${restaurant.phone}</p>
 
-                            <button class="weeklyMenu">Katso viikon menu</button>
+                            <div class="popupButtons">
+                             <button id="menu-button">Katso päivän menu</button>
+                             <button id="weeklyMenu">Katso viikon menu</button>
+                              ${token ? `<img class="favoriteButton" src="../assets/suosikkiNappi.png" alt="Click me" style="width: 50px; height: 50px;"/>` : ''}
+                            </div>
                         </div>
                     `)
                     .on('popupopen', (e) => {
                         const popup = e.popup;
-                        const menuButton = popup.getElement().querySelector('.menu-button');
-                        const weeklyButton = popup.getElement().querySelector('.weeklyMenu');
-                        
+                        const menuButton = popup.getElement().querySelector('#menu-button');
+                        const weeklyButton = popup.getElement().querySelector('#weeklyMenu');
+                        const favoriteButton = popup.getElement().querySelector('.favoriteButton'); // Add this line
+
                         menuButton.addEventListener('click', async ()  => {
-                            console.log(`Clicked menu for ${restaurant.name}`);
                             await fetchMenu(menu, restaurant._id);
                             setDailyMenu(restaurant, menu, infoContainer);
                             modal.showModal();
               
                         });
-
-                        
+                      
                         weeklyButton.addEventListener('click', async ()  => {
-                            console.log(`Clicked weekly menu for ${restaurant.name}`);
                             await fetchWeeklyMenu(weeklyMenu, restaurant._id);
                             setWeeklyMenu(restaurant, weeklyMenu, infoContainer);
-                            console.log(weeklyMenu);
                             modal.showModal();
-                       
+                        })
+                        favoriteButton.addEventListener('click', async ()  => {
+                            await addFavoriteRestaurant(restaurant._id);
+                            alert(`${restaurant.name} lisätty suosikiksi!`);
+                            //localStorage.setItem('favRestaurant', restaurant.name);
                         });
-                    });
-                    
-            });
-        }
+                    })
+            })}
     } catch (error) {
-        console.error('Error initializing map:', error);
+        console.error('Error initializing site:', error);
     }
-}
+};
 
 const getNearestRestaurants = () => {
-
 const finalList = [];
-
 let y1 = 0;
 let x1 = 0;
 
@@ -101,9 +104,7 @@ navigator.geolocation.getCurrentPosition((position) => {
     const x2 = restaurants[i].location.coordinates[0];
     const y2 = restaurants[i].location.coordinates[1];
 
-    //calc distance add
     const distance = Math.sqrt((x2 - x1) ** 2 + (y2 - y1) ** 2);
-
     let restaurant = {
       name: restaurants[i].name,
       address: restaurants[i].address,
@@ -115,21 +116,49 @@ navigator.geolocation.getCurrentPosition((position) => {
   }
 
   finalList.sort((a,b) => a.distance-b.distance);
-
-
-
   },
 
   (error) => {
     alert("Error getting location:", error.message);
   }
-);
-}
+)
+};
+
+const getRestaurantCoordinates = (restaurantId) => {
+    const restaurant = restaurants.find(r => r._id === restaurantId);
+    if (!restaurant) {
+        console.error('Restaurant not found');
+        return null;
+    }
+    return {
+        lat: restaurant.location.coordinates[1],
+        lng: restaurant.location.coordinates[0] 
+    }
+};
+
+const getFavoriteRestaurantName = async () => {
+    try {
+        const favId = await getFavoriteRestaurant();
+        if (!favId) {
+            console.log('No favorite restaurant set');
+            return null;
+        }
+
+        const restaurant = restaurants.find(r => r._id === favId);
+        if (restaurant) {
+            localStorage.setItem('favRestaurantName', restaurant.name);
+            return restaurant.name;
+        } else {
+            console.log('Restaurant not found');
+            return null;
+        }
+    } catch (error) {
+        console.error('Error getting favorite restaurant name:', error);
+        return null;
+    }
+};
 
 
-
-
-//TOIMII
 const setDailyMenu = (restaurant, menu, infoContainer) => {  
     infoContainer.innerHTML = '';
     try {
@@ -139,11 +168,8 @@ const setDailyMenu = (restaurant, menu, infoContainer) => {
     } catch (error) {
         console.log(error.message);
     }
-  }
+  };
 
-
-
-  //KESKEN
   const setWeeklyMenu = (restaurant, weekly, infoContainer) => {  
     infoContainer.innerHTML = '';
     try {
@@ -152,9 +178,7 @@ const setDailyMenu = (restaurant, menu, infoContainer) => {
     } catch (error) {
         console.log(error.message);
     } 
-  }
-
-
+  };
 
 
 loginorlogout.addEventListener('click', function(event) {
@@ -178,7 +202,6 @@ loginorlogout.addEventListener('click', function(event) {
 
     } else if(!token) {
         window.location.href = 'register.html';
-
     }
   });
 
@@ -186,25 +209,30 @@ loginorlogout.addEventListener('click', function(event) {
 closeModal.addEventListener('click', () => {
     modal.close();
 
-  })
-
-
+  });
 
 nearestRestaurantsButton.addEventListener('click', () => {
     navigator.geolocation.getCurrentPosition((position) => {
         const y1 = position.coords.latitude;
         const x1 = position.coords.longitude;
-        
-        // Update map view after we have the coordinates
+
         map.setView([y1, x1], 10);
-        
-        // Call getNearestRestaurants with coordinates if needed
         getNearestRestaurants();
         
         console.log('Location updated:', y1, x1);
     }, (error) => {
         console.error('Error getting location:', error.message);
-    });
+    })
 });
 
-initializeMap();
+favoriteButton.addEventListener('click', async () => {
+    const favId = await getFavoriteRestaurantId();
+    
+
+    const coords = getRestaurantCoordinates(favId);
+    if (coords) {
+        map.setView([coords.lat, coords.lng], 35);
+    }
+});
+
+initializeSite();
